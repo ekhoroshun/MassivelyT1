@@ -51,31 +51,32 @@ For example the list ["Hello", "World", "from", "Massively"] gets printed as:
 * Massively *
 ************* */
 
-function printFrame(arr) {
+function print(sentence) {
   
-  function fill (str, length, char) {
-    return (str.length < length) ? fill(str + char, length, char) : str;
-  }
+      function fill (str, length, char) {
+      return (str.length < length) ? fill(str + char, length, char) : str;
+      }
 
-  let size = arr.map((str) => {
+      let size = sentence.map((str) => {
           return str.length;
       })
       .reduce((a, b) => {
           return Math.max(a, b);
       });
   
-  let line = fill('', size + 4, '*');
+      let line = fill('', size + 4, '*');
   
-  arr = arr.map((element) => {
+      sentence = sentence.map((element) => {
           return '* '+ fill(element, size, ' ') + ' *';
       })
-  arr.unshift(line);
-  arr.push(line);
+
+      sentence.unshift(line);
+      sentence.push(line);
   
-  return arr.join('\n');;
+  return sentence.join('\n');;
 }
 
-console.log(printFrame(["Hello", "World", "from", "Massively"]));
+console.log(print(["Hello", "World", "from", "Massively"]));
 
 /* Question 3 */
 
